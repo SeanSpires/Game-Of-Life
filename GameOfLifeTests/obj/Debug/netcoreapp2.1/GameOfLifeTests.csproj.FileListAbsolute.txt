@@ -1,0 +1,17 @@
+/Users/sean.spires/Desktop/Projects/GameOfLife/GameOfLifeTests/bin/Debug/netcoreapp2.1/xunit.runner.visualstudio.dotnetcore.testadapter.dll
+/Users/sean.spires/Desktop/Projects/GameOfLife/GameOfLifeTests/bin/Debug/netcoreapp2.1/xunit.runner.reporters.netcoreapp10.dll
+/Users/sean.spires/Desktop/Projects/GameOfLife/GameOfLifeTests/bin/Debug/netcoreapp2.1/xunit.runner.utility.netcoreapp10.dll
+/Users/sean.spires/Desktop/Projects/GameOfLife/GameOfLifeTests/bin/Debug/netcoreapp2.1/GameOfLifeTests.deps.json
+/Users/sean.spires/Desktop/Projects/GameOfLife/GameOfLifeTests/bin/Debug/netcoreapp2.1/GameOfLifeTests.runtimeconfig.json
+/Users/sean.spires/Desktop/Projects/GameOfLife/GameOfLifeTests/bin/Debug/netcoreapp2.1/GameOfLifeTests.runtimeconfig.dev.json
+/Users/sean.spires/Desktop/Projects/GameOfLife/GameOfLifeTests/bin/Debug/netcoreapp2.1/GameOfLifeTests.dll
+/Users/sean.spires/Desktop/Projects/GameOfLife/GameOfLifeTests/bin/Debug/netcoreapp2.1/GameOfLifeTests.pdb
+/Users/sean.spires/Desktop/Projects/GameOfLife/GameOfLifeTests/bin/Debug/netcoreapp2.1/GameOfLife.dll
+/Users/sean.spires/Desktop/Projects/GameOfLife/GameOfLifeTests/bin/Debug/netcoreapp2.1/GameOfLife.pdb
+/Users/sean.spires/Desktop/Projects/GameOfLife/GameOfLifeTests/obj/Debug/netcoreapp2.1/GameOfLifeTests.csprojAssemblyReference.cache
+/Users/sean.spires/Desktop/Projects/GameOfLife/GameOfLifeTests/obj/Debug/netcoreapp2.1/GameOfLifeTests.csproj.CoreCompileInputs.cache
+/Users/sean.spires/Desktop/Projects/GameOfLife/GameOfLifeTests/obj/Debug/netcoreapp2.1/GameOfLifeTests.AssemblyInfoInputs.cache
+/Users/sean.spires/Desktop/Projects/GameOfLife/GameOfLifeTests/obj/Debug/netcoreapp2.1/GameOfLifeTests.AssemblyInfo.cs
+/Users/sean.spires/Desktop/Projects/GameOfLife/GameOfLifeTests/obj/Debug/netcoreapp2.1/GameOfLifeTests.csproj.CopyComplete
+/Users/sean.spires/Desktop/Projects/GameOfLife/GameOfLifeTests/obj/Debug/netcoreapp2.1/GameOfLifeTests.dll
+/Users/sean.spires/Desktop/Projects/GameOfLife/GameOfLifeTests/obj/Debug/netcoreapp2.1/GameOfLifeTests.pdb

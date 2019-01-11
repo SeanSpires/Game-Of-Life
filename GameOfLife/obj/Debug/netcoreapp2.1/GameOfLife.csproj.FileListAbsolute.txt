@@ -1,0 +1,11 @@
+/Users/sean.spires/Desktop/Projects/GameOfLife/GameOfLife/bin/Debug/netcoreapp2.1/GameOfLife.deps.json
+/Users/sean.spires/Desktop/Projects/GameOfLife/GameOfLife/bin/Debug/netcoreapp2.1/GameOfLife.runtimeconfig.json
+/Users/sean.spires/Desktop/Projects/GameOfLife/GameOfLife/bin/Debug/netcoreapp2.1/GameOfLife.runtimeconfig.dev.json
+/Users/sean.spires/Desktop/Projects/GameOfLife/GameOfLife/bin/Debug/netcoreapp2.1/GameOfLife.dll
+/Users/sean.spires/Desktop/Projects/GameOfLife/GameOfLife/bin/Debug/netcoreapp2.1/GameOfLife.pdb
+/Users/sean.spires/Desktop/Projects/GameOfLife/GameOfLife/obj/Debug/netcoreapp2.1/GameOfLife.csprojAssemblyReference.cache
+/Users/sean.spires/Desktop/Projects/GameOfLife/GameOfLife/obj/Debug/netcoreapp2.1/GameOfLife.csproj.CoreCompileInputs.cache
+/Users/sean.spires/Desktop/Projects/GameOfLife/GameOfLife/obj/Debug/netcoreapp2.1/GameOfLife.AssemblyInfoInputs.cache
+/Users/sean.spires/Desktop/Projects/GameOfLife/GameOfLife/obj/Debug/netcoreapp2.1/GameOfLife.AssemblyInfo.cs
+/Users/sean.spires/Desktop/Projects/GameOfLife/GameOfLife/obj/Debug/netcoreapp2.1/GameOfLife.dll
+/Users/sean.spires/Desktop/Projects/GameOfLife/GameOfLife/obj/Debug/netcoreapp2.1/GameOfLife.pdb
