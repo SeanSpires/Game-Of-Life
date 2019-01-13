@@ -25,6 +25,18 @@ namespace GameOfLife
             return neighbouringCells.ToArray();
         }
 
+        public void SwapCellStateAt(int row, int column)
+        {
+            if (Cells[row, column].CellState == State.Dead)
+            {
+                Cells[row, column].CellState = State.Live;
+            }
+            else if (Cells[row, column].CellState == State.Live)
+            {
+                Cells[row, column].CellState = State.Dead;
+            }
+        }
+
         private List<Cell> FindNeighbouringCells(int row, int column)
         {
             var neighbouringCells = new List<Cell>();  

@@ -15,16 +15,22 @@ namespace GameOfLife
                 {
                     if (cells[row, col].CellState == State.Dead)
                     {
-                        Console.Write("Dead");
+                        Console.Write("- ");
                     }
 
                     if (cells[row, col].CellState == State.Live)
                     {
-                        Console.WriteLine("Live");
+                        Console.Write("+ ");
                     }
                 }
                 Console.Write("\n");
             }
+        }
+
+        public void DisplayMainMenu()
+        {
+            Console.WriteLine("Welcome to Conway's Game Of Life");
+            Console.WriteLine("What dimensions would you like the world to have? <height,width>");
         }
     }
 }

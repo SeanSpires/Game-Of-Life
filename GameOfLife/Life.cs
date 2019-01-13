@@ -1,17 +1,23 @@
+using System;
+using System.Threading;
+
 namespace GameOfLife
 {
     public class Life
     {
-        private World world { get; set; }
-
-        public void start(int height, int width)
+        public void Start(World world)
         {
-            world = new World(height, width);
-            while (true)
+            var renderer = new Renderer();
+            const int milliseconds = 500;
+            
+            do
             {
-                // TODO add delay to tick
+                Console.Write("\n");
+                Thread.Sleep(milliseconds);
                 world.Tick();
-            }
+                renderer.RenderGrid(world.CellGrid);
+            } while (true);
+            
         }
     }
 }

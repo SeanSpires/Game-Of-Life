@@ -40,6 +40,11 @@ namespace GameOfLifeTests.MockClasses
           
             return neighbouringCells.ToArray();
         }
+        
+        public void SwapCellStateAt(int row, int column)
+        {
+            Cells[row, column].CellState = Cells[row, column].CellState == State.Dead ? State.Live : State.Dead;
+        }
 
         private List<Cell> FindNeighbouringCells(int row, int col)
         {
