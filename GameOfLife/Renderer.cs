@@ -32,5 +32,11 @@ namespace GameOfLife
             Console.WriteLine("Welcome to Conway's Game Of Life");
             Console.WriteLine("What dimensions would you like the world to have? <height,width>");
         }
+
+        public void DisplayInitializationMenu()
+        {
+            Console.WriteLine("All cells are initially dead, enter in coordinates to" +
+                              " swap the state of a cell: <height,width>");
+        }
     }
 }

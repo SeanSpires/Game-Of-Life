@@ -21,7 +21,6 @@ namespace GameOfLife
         public Cell[] GetNeighbouringCells(int row, int column)
         {
             var neighbouringCells = FindNeighbouringCells(row, column);
-          
             return neighbouringCells.ToArray();
         }
 
