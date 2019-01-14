@@ -38,5 +38,11 @@ namespace GameOfLife
             Console.WriteLine("All cells are initially dead, enter in coordinates to" +
                               " swap the state of a cell: <height,width>");
         }
+
+        public void DisplayUserInputErrorMessage()
+        {           
+            Console.Clear();
+            Console.WriteLine("Your input was incorrect, please enter a valid input");
+        }
     }
 }

@@ -4,7 +4,7 @@ namespace GameOfLife
 {
     public class MainMenu : Menu
     {
-        public World World { get; set; }
+        public World World { get; private set; }
         private int WorldHeight { get; set; }
         private int WorldWidth { get; set; }
 
@@ -13,9 +13,8 @@ namespace GameOfLife
             Console.Clear();
             DisplayMainMenu();
 
-            var userInput = Console.ReadLine();
-            var worldDimensions = userInput.Split(",");
-            CreateWorld(worldDimensions);
+            var userInput = GetUserInput();
+            CreateWorld(userInput);
             DisplayInitialWorldGrid();
         }
 
@@ -23,6 +22,12 @@ namespace GameOfLife
         {
             var renderer = new Renderer();
             renderer.DisplayMainMenu();
+        }
+
+        private void DisplayUserInputErrorMessage()
+        {
+            var renderer = new Renderer();
+            renderer.DisplayUserInputErrorMessage();
         }
 
         private void CreateWorld(string[] worldDimensions)
@@ -36,6 +41,30 @@ namespace GameOfLife
         {
             var renderer = new Renderer();
             renderer.RenderGrid(World.CellGrid);
+        }
+
+        private string[] GetUserInput()
+        {
+            var validator = new Validator();
+            var userInputIsInvalid = true;
+
+            while (userInputIsInvalid)
+            {
+                var userInput = Console.ReadLine();
+                if (validator.IsUserInputInCorrectFormat(userInput))
+                {
+                    var worldDimensions = userInput.Split(",");
+                    if (validator.IsWorldDimensionsValid(worldDimensions[0],worldDimensions[1]))
+                    {
+                        return worldDimensions;
+                    }
+                }
+                
+                DisplayUserInputErrorMessage();
+                DisplayMainMenu();
+            }
+
+            return new[] {""};
         }
     }
 }

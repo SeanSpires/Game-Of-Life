@@ -19,17 +19,18 @@ namespace GameOfLife
 
             while (userIsStillSelecting)
             {
-                var userSelectedCoordinates = Console.ReadLine();
+                var userInput = Console.ReadLine();
 
-                if (userSelectedCoordinates == "start")
+                if (userInput == "start")
                 {
                     userIsStillSelecting = false;
-                    continue;
                 }
-
-                var coordinates = userSelectedCoordinates.Split(",");
-                World.CellGrid.SwapCellStateAt(int.Parse(coordinates[0]), int.Parse(coordinates[1]));
-                DisplayNextIterationOfInitializationMenu();
+                else
+                {        
+                    var coordinates = userInput.Split(",");
+                    World.CellGrid.SwapCellStateAt(int.Parse(coordinates[0]), int.Parse(coordinates[1]));
+                    DisplayNextIterationOfInitializationMenu(); 
+                }
             }
         }
 

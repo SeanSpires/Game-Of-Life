@@ -26,6 +26,7 @@
         <e p="Program.cs" t="Include" />
         <e p="Renderer.cs" t="Include" />
         <e p="State.cs" t="Include" />
+        <e p="Validator.cs" t="Include" />
         <e p="World.cs" t="Include" />
       </e>
       <e p="GameOfLife.sln" t="IncludeFlat" />
@@ -46,6 +47,7 @@
           </e>
         </e>
         <e p="RendererShould.cs" t="Include" />
+        <e p="ValidatorShould.cs" t="Include" />
         <e p="WorldShould.cs" t="Include" />
       </e>
       <e p="packages" t="ExcludeRecursive" />

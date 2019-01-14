@@ -6,8 +6,7 @@ namespace GameOfLife
     public class Grid : IGrid
     {
         public int GridHeight { get; set; }      
-        public int GridWidth { get; set; }
-        
+        public int GridWidth { get; set; }    
         public Cell[,] Cells { get; set; }
 
         public Grid(int height, int width)
