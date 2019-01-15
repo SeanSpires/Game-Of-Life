@@ -4,22 +4,13 @@ namespace GameOfLife
 {
     public class Renderer : IRenderer
     {
-
         public void RenderCellsInGrid(Cell[,] cells)
         {
             for (var row = 0; row < cells.GetLength(0); row++)
             {
                 for (var col = 0; col < cells.GetLength(1); col++)
                 {
-                    if (cells[row, col].CellState == State.Dead)
-                    {
-                        Console.Write("- ");
-                    }
-
-                    if (cells[row, col].CellState == State.Live)
-                    {
-                        Console.Write("+ ");
-                    }
+                    Console.Write(cells[row, col].CellState == State.Dead ? "- " : "+ ");
                 }
                 DisplayNewLine();
             }
@@ -35,6 +26,7 @@ namespace GameOfLife
         {
             Console.WriteLine("All cells are initially dead, enter in coordinates to" +
                               " swap the state of a cell: <height,width>");
+            Console.WriteLine("When you're ready type \"start\" to begin game of life");
         }
 
         public void DisplayUserInputErrorMessage()

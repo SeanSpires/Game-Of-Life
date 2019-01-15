@@ -57,7 +57,6 @@ namespace GameOfLife
                   return State.Live;
               }
           }
-          
           return cellState;
       }
     }

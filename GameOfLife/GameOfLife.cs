@@ -20,10 +20,11 @@ namespace GameOfLife
             
             do
             {
+                var cells = World.CellGrid.Cells;
                 renderer.DisplayNewLine();
                 Thread.Sleep(milliseconds);
                 World.Tick();
-                renderer.RenderCellsInGrid(World.CellGrid.Cells);
+                renderer.RenderCellsInGrid(cells);
             } while (true);
             
         }

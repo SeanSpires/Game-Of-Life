@@ -22,7 +22,7 @@ namespace GameOfLifeTests
             var validCoordinate = "2,2";
             var validator = new Validator();
             
-            Assert.True(validator.IsCoordinateValid(gridHeight, gridWidth, validCoordinate));
+            Assert.True(validator.IsUserInputValid(validCoordinate,gridHeight, gridWidth));
         }
 
     }

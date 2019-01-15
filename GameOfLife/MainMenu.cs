@@ -11,6 +11,7 @@ namespace GameOfLife
         {
             Console.Clear();
             GetUserInput();
+            Console.Clear();
         }
 
         private void Display()

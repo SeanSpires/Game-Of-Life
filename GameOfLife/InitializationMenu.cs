@@ -21,8 +21,11 @@ namespace GameOfLife
 
         public void Run()
         {
-            var validator = new Validator();
-            var renderer = new Renderer();
+            GetUserInput();
+        }
+
+        private void GetUserInput()
+        {
             var userIsStillSelecting = true;
 
             while (userIsStillSelecting)
@@ -30,25 +33,43 @@ namespace GameOfLife
                 DisplayInitializationMenu();
                 var userInput = Console.ReadLine();
 
-                if (validator.IsCoordinateValid(GridHeight, GridWidth, userInput))
+                if (!IsCoordinateValid(GridHeight, GridWidth, userInput))
                 {
-                    if (userInput == KeyWordToStartGameOfLife)
-                    {
-                        userIsStillSelecting = false;
-                    }
-                    else
-                    {
-                        var coordinates = userInput.Split(",");
-                        Cells[int.Parse(coordinates[0]), int.Parse(coordinates[1])].SwapCellState();
-                        renderer.RenderCellsInGrid(Cells);
-                    }
+                    DisplayErrorScreen();
                 }
                 else
                 {
-                    renderer.RenderCellsInGrid(Cells);
-                    renderer.DisplayUserInputErrorMessage();
+                    if (userInput != KeyWordToStartGameOfLife)
+                    {
+                        ProcessUserInput(userInput);
+                    }
+                    else
+                    {
+                        userIsStillSelecting = false;
+                    }
                 }
             }
+        }
+
+        private bool IsCoordinateValid(int height, int width, string userInput)
+        {
+            var validator = new Validator();
+            return validator.IsUserInputValid(userInput,height, width);
+        }
+
+        private void DisplayErrorScreen()
+        {          
+            var renderer = new Renderer();
+            renderer.RenderCellsInGrid(Cells);
+            renderer.DisplayUserInputErrorMessage();
+        }
+
+        private void ProcessUserInput(string userInput)
+        {
+            var renderer = new Renderer();
+            var coordinates = userInput.Split(",");
+            Cells[int.Parse(coordinates[0]), int.Parse(coordinates[1])].SwapCellState();
+            renderer.RenderCellsInGrid(Cells);
         }
 
         private void DisplayInitializationMenu()

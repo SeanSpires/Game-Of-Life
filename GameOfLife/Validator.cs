@@ -12,18 +12,18 @@ namespace GameOfLife
             return match.Success;
         }
 
-        public bool IsCoordinateValid(int gridHeight, int gridWidth, string userInput)
+        public bool IsUserInputValid(string userInput,int gridHeight, int gridWidth)
         {
             if (userInput == KeyWordToStartGameOfLife)
             {
                 return true;
             }
 
-            if (!userInput.Contains(","))
-            {
-                return false;
-            }
+            return userInput.Contains(",") && IsCoordinatesValid(gridHeight, gridWidth, userInput);
+        }
 
+        private bool IsCoordinatesValid(int gridHeight, int gridWidth, string userInput)
+        {
             var coordinates = userInput.Split(",");
 
             if (!int.TryParse(coordinates[0], out var height) || !int.TryParse(coordinates[1], out var width))
