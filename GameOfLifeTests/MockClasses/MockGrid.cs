@@ -97,13 +97,6 @@ namespace GameOfLifeTests.MockClasses
 
             return new[] {-1, 0, +1};
         }
-
-        public void UpdateCellStateAt(int row, int column, State newCellState)
-        {
-            var cellAtSpecifiedLocation = Cells[row, column];
-            cellAtSpecifiedLocation.CellState = newCellState;
-            Cells[row, column] = cellAtSpecifiedLocation;
-        }
         
         private void PopulateGridWithDeadCells(int height, int width)
         {

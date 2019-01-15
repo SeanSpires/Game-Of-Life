@@ -1,22 +1,37 @@
+using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
+
 namespace GameOfLife
 {
     public class Validator
     {
-        public bool IsUserInputInCorrectFormat(string userInput)
+        private const string KeyWordToStartGameOfLife = "start";
+        public bool IsWorldDimensionsValid(string userInput)
         {
-            return userInput.Contains(",");
+            var match = Regex.Match(userInput, @"^\d+,\d+$");
+            return match.Success;
         }
 
-        public bool IsWorldDimensionsValid(string height, string width)
+        public bool IsCoordinateValid(int gridHeight, int gridWidth, string userInput)
         {
-            if (int.TryParse(height, out var worldHeight) && int.TryParse(width, out var worldWidth))
+            if (userInput == KeyWordToStartGameOfLife)
             {
-                if (worldHeight >= 3 && worldWidth >= 3)
-                {
-                    return true;
-                }
+                return true;
             }
-            return false;
+
+            if (!userInput.Contains(","))
+            {
+                return false;
+            }
+
+            var coordinates = userInput.Split(",");
+
+            if (!int.TryParse(coordinates[0], out var height) || !int.TryParse(coordinates[1], out var width))
+            {
+                return false;
+            }
+
+            return height >= 0 && height < gridHeight && width >= 0 && width < gridWidth;
         }
     }
 }

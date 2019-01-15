@@ -8,12 +8,12 @@ namespace GameOfLife
         {
             var mainMenu = new MainMenu();
             mainMenu.Run();
-
-            var initializationMenu = new InitializationMenu(mainMenu.World);
+            
+            var initializationMenu = new InitializationMenu(mainMenu.GridHeight, mainMenu.GridWidth);
             initializationMenu.Run();
             
-            var life = new Life();
-            life.Start(initializationMenu.World);
+            var gameOfLife = new GameOfLife(mainMenu.GridHeight, mainMenu.GridWidth, initializationMenu.Cells);
+            gameOfLife.Start();
         }
     }
 }

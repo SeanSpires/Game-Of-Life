@@ -10,27 +10,7 @@ namespace GameOfLifeTests.MockClasses
         public string[,] RenderedGrid { get; private set; }
         public string[] RenderedMainMenu { get; set; }
 
-        public void RenderGrid(IGrid grid)
-        {
-            RenderedGrid = new string[grid.GridHeight, grid.GridWidth];
-            var cells = grid.Cells;
-            
-            for (var row = 0; row < grid.GridHeight; row++)
-            {
-                for (var col = 0; col < grid.GridWidth; col++)
-                {
-                    if (cells[row, col].CellState == State.Dead)
-                    {
-                        RenderedGrid[row, col] = "Dead";
-                    }
-
-                    if (cells[row, col].CellState == State.Live)
-                    {
-                        RenderedGrid[row, col] = "Live";
-                    }
-                }
-            }
-        }
+        
 
         public void DisplayMainMenu()
         {

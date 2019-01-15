@@ -4,7 +4,6 @@ namespace GameOfLife
 {
     public class Renderer : IRenderer
     {
-        
         public void RenderGrid(IGrid grid)
         {
             var cells = grid.Cells;
@@ -23,7 +22,27 @@ namespace GameOfLife
                         Console.Write("+ ");
                     }
                 }
-                Console.Write("\n");
+                DisplayNewLine();
+            }
+        }
+
+        public void RenderCellsInGrid(Cell[,] cells)
+        {
+            for (var row = 0; row < cells.GetLength(0); row++)
+            {
+                for (var col = 0; col < cells.GetLength(1); col++)
+                {
+                    if (cells[row, col].CellState == State.Dead)
+                    {
+                        Console.Write("- ");
+                    }
+
+                    if (cells[row, col].CellState == State.Live)
+                    {
+                        Console.Write("+ ");
+                    }
+                }
+                DisplayNewLine();
             }
         }
 
@@ -43,6 +62,11 @@ namespace GameOfLife
         {           
             Console.Clear();
             Console.WriteLine("Your input was incorrect, please enter a valid input");
+        }
+
+        public void DisplayNewLine()
+        {
+            Console.Write("\n");
         }
     }
 }

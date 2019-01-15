@@ -4,21 +4,16 @@ namespace GameOfLife
 {
     public class MainMenu : Menu
     {
-        public World World { get; private set; }
-        private int WorldHeight { get; set; }
-        private int WorldWidth { get; set; }
+        public int GridHeight { get; set; }
+        public int GridWidth { get; set; }
 
         public void Run()
         {
             Console.Clear();
-            DisplayMainMenu();
-
-            var userInput = GetUserInput();
-            CreateWorld(userInput);
-            DisplayInitialWorldGrid();
+            GetUserInput();
         }
 
-        private void DisplayMainMenu()
+        private void Display()
         {
             var renderer = new Renderer();
             renderer.DisplayMainMenu();
@@ -29,42 +24,29 @@ namespace GameOfLife
             var renderer = new Renderer();
             renderer.DisplayUserInputErrorMessage();
         }
-
-        private void CreateWorld(string[] worldDimensions)
-        {
-            WorldHeight = int.Parse(worldDimensions[0]);
-            WorldWidth = int.Parse(worldDimensions[1]);
-            World = new World(WorldHeight, WorldWidth);
-        }
-
-        private void DisplayInitialWorldGrid()
-        {
-            var renderer = new Renderer();
-            renderer.RenderGrid(World.CellGrid);
-        }
-
-        private string[] GetUserInput()
+        private void GetUserInput()
         {
             var validator = new Validator();
             var userInputIsInvalid = true;
 
             while (userInputIsInvalid)
             {
+                Display();
                 var userInput = Console.ReadLine();
-                if (validator.IsUserInputInCorrectFormat(userInput))
+                if (validator.IsWorldDimensionsValid(userInput))
                 {
-                    var worldDimensions = userInput.Split(",");
-                    if (validator.IsWorldDimensionsValid(worldDimensions[0],worldDimensions[1]))
-                    {
-                        return worldDimensions;
-                    }
+                    var worldDimensions = userInput.Split(",");              
+                    GridHeight = int.Parse(worldDimensions[0]);
+                    GridWidth = int.Parse(worldDimensions[1]);
+                    userInputIsInvalid = false;               
                 }
-                
-                DisplayUserInputErrorMessage();
-                DisplayMainMenu();
+                else
+                {
+                    DisplayUserInputErrorMessage();
+
+                }
             }
 
-            return new[] {""};
         }
     }
 }

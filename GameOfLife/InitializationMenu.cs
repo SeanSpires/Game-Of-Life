@@ -4,32 +4,49 @@ namespace GameOfLife
 {
     public class InitializationMenu : Menu
     {
-        public World World { get; }
+        private int GridHeight { get; }
+        private int GridWidth { get; }
+        public Cell[,] Cells { get; }
 
-        public InitializationMenu(World world)
+        private const string KeyWordToStartGameOfLife = "start";
+
+
+        public InitializationMenu(int gridHeight, int gridWidth)
         {
-            World = world;
+            GridHeight = gridHeight;
+            GridWidth = gridWidth;
+            Cells = new Cell[GridHeight, GridWidth];
+            InitializeCells();
         }
 
         public void Run()
         {
-            DisplayInitializationMenu();
-
+            var validator = new Validator();
+            var renderer = new Renderer();
             var userIsStillSelecting = true;
 
             while (userIsStillSelecting)
             {
+                DisplayInitializationMenu();
                 var userInput = Console.ReadLine();
 
-                if (userInput == "start")
+                if (validator.IsCoordinateValid(GridHeight, GridWidth, userInput))
                 {
-                    userIsStillSelecting = false;
+                    if (userInput == KeyWordToStartGameOfLife)
+                    {
+                        userIsStillSelecting = false;
+                    }
+                    else
+                    {
+                        var coordinates = userInput.Split(",");
+                        Cells[int.Parse(coordinates[0]), int.Parse(coordinates[1])].SwapCellState();
+                        renderer.RenderCellsInGrid(Cells);
+                    }
                 }
                 else
-                {        
-                    var coordinates = userInput.Split(",");
-                    World.CellGrid.SwapCellStateAt(int.Parse(coordinates[0]), int.Parse(coordinates[1]));
-                    DisplayNextIterationOfInitializationMenu(); 
+                {
+                    renderer.RenderCellsInGrid(Cells);
+                    renderer.DisplayUserInputErrorMessage();
                 }
             }
         }
@@ -39,12 +56,16 @@ namespace GameOfLife
             var renderer = new Renderer();
             renderer.DisplayInitializationMenu();
         }
-
-        private void DisplayNextIterationOfInitializationMenu()
+        
+        private void InitializeCells()
         {
-            var renderer = new Renderer();
-            renderer.RenderGrid(World.CellGrid);
-            renderer.DisplayInitializationMenu();
+            for (var row = 0; row < GridHeight; row++)
+            {
+                for (var col = 0; col < GridWidth; col++)
+                {
+                    Cells[row, col] = new Cell();
+                }
+            }
         }
     }
 }

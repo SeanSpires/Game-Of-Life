@@ -8,6 +8,5 @@ namespace GameOfLife
 
         int GridWidth { get; set; }
         Cell[] GetNeighbouringCells(int row, int column);
-        void SwapCellStateAt(int parse, int i);
     }
 }

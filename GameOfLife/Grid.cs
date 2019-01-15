@@ -14,7 +14,6 @@ namespace GameOfLife
             Cells = new Cell[height, width];
             GridHeight = height;
             GridWidth = width;
-            InitializeGridWithDeadCells(height, width);
         }
         
         public Cell[] GetNeighbouringCells(int row, int column)
@@ -23,23 +22,12 @@ namespace GameOfLife
             return neighbouringCells.ToArray();
         }
 
-        public void SwapCellStateAt(int row, int column)
-        {
-            if (Cells[row, column].CellState == State.Dead)
-            {
-                Cells[row, column].CellState = State.Live;
-            }
-            else if (Cells[row, column].CellState == State.Live)
-            {
-                Cells[row, column].CellState = State.Dead;
-            }
-        }
 
         private List<Cell> FindNeighbouringCells(int row, int column)
         {
             var neighbouringCells = new List<Cell>();  
-            var neighboursRowPositions = GetNeighboursRowPositions(row);
-            var neighboursColPositions = GetNeighboursColumnPositions(column);
+            var neighboursRowPositions = GetCellNeighbourPosition(row);
+            var neighboursColPositions = GetCellNeighbourPosition(column);
             
             foreach (var neighboursRow in neighboursRowPositions)
             {
@@ -56,45 +44,20 @@ namespace GameOfLife
             return neighbouringCells;
         }
 
-        private IEnumerable<int> GetNeighboursRowPositions(int row)
+        private IEnumerable<int> GetCellNeighbourPosition(int coordinate)
         {
-            if (row == 0)
-            {
-                return new[] {+(GridHeight - 1) , 0, +1};
-            }
-            
-            if (row == GridWidth - 1)
-            {
-                return new[] {-1 , 0, -(GridWidth-1)};
-            }
-
-            return new[] {-1, 0, +1};
-        }
-
-        private IEnumerable<int> GetNeighboursColumnPositions(int column)
-        {
-            if (column == 0)
+            if (coordinate == 0)
             {
                 return new[] {+(GridWidth - 1), 0, +1};
             }
 
-            if (column == GridWidth - 1)
+            if (coordinate == GridWidth - 1)
             {
                 return new[] {-1, 0, -(GridWidth - 1)};
             }
 
             return new[] {-1, 0, +1};
         }
-        
-        private void InitializeGridWithDeadCells(int height, int width)
-        {
-            for (var row = 0; row < height; row++)
-            {
-                for (var col = 0; col < width; col++)
-                {
-                    Cells[row, col] = new Cell {CellState = State.Dead};
-                }
-            }
-        }
+
     }
 }
