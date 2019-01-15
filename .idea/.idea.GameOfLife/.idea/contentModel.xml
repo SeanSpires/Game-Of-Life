@@ -8,12 +8,12 @@
       <e p="GameOfLife" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="Cell.cs" t="Include" />
+        <e p="GameOfLife.cs" t="Include" />
         <e p="GameOfLife.csproj" t="IncludeRecursive" />
         <e p="Grid.cs" t="Include" />
         <e p="IGrid.cs" t="Include" />
         <e p="InitializationMenu.cs" t="Include" />
         <e p="IRenderer.cs" t="Include" />
-        <e p="Life.cs" t="Include" />
         <e p="MainMenu.cs" t="Include" />
         <e p="Menu.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">

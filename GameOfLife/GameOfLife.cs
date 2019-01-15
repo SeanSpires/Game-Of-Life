@@ -23,7 +23,7 @@ namespace GameOfLife
                 renderer.DisplayNewLine();
                 Thread.Sleep(milliseconds);
                 World.Tick();
-                renderer.RenderGrid(World.CellGrid);
+                renderer.RenderCellsInGrid(World.CellGrid.Cells);
             } while (true);
             
         }

@@ -4,7 +4,7 @@ namespace GameOfLife
 {
     class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             var mainMenu = new MainMenu();
             mainMenu.Run();
