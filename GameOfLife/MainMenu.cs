@@ -1,19 +1,10 @@
 using System;
+using System.Collections.Generic;
 
 namespace GameOfLife
 {
-    public class MainMenu : Menu
+    public class MainMenu
     {
-        public int GridHeight { get; set; }
-        public int GridWidth { get; set; }
-
-        public void Run()
-        {
-            Console.Clear();
-            GetUserInput();
-            Console.Clear();
-        }
-
         private void Display()
         {
             var renderer = new Renderer();
@@ -25,8 +16,10 @@ namespace GameOfLife
             var renderer = new Renderer();
             renderer.DisplayUserInputErrorMessage();
         }
-        private void GetUserInput()
+
+        public int[] GetUserInput()
         {
+            var gridDimensions = new List<int>();
             var validator = new Validator();
             var userInputIsInvalid = true;
 
@@ -36,18 +29,26 @@ namespace GameOfLife
                 var userInput = Console.ReadLine();
                 if (validator.IsWorldDimensionsValid(userInput))
                 {
-                    var worldDimensions = userInput.Split(",");              
-                    GridHeight = int.Parse(worldDimensions[0]);
-                    GridWidth = int.Parse(worldDimensions[1]);
+                    gridDimensions = ConvertValidUserInputIntoGridDimensions(userInput);
                     userInputIsInvalid = false;               
                 }
                 else
                 {
                     DisplayUserInputErrorMessage();
-
                 }
             }
+            return gridDimensions.ToArray();
+        }
 
+        private List<int> ConvertValidUserInputIntoGridDimensions(string userInput)
+        {
+            var gridDimensions = new List<int>();
+
+            var validWorldDimensions  = userInput.Split(",");              
+            gridDimensions.Add(int.Parse(validWorldDimensions[0]));
+            gridDimensions.Add(int.Parse(validWorldDimensions[1]));
+
+            return gridDimensions;
         }
     }
 }

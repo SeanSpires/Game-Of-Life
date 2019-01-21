@@ -8,9 +8,7 @@ namespace GameOfLifeTests.MockClasses
     public class MockRenderer : IRenderer
     {
         public string[,] RenderedGrid { get; private set; }
-        public string[] RenderedMainMenu { get; set; }
-
-        
+        public string[] RenderedMainMenu { get; set; }    
 
         public void DisplayMainMenu()
         {

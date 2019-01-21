@@ -21,7 +21,8 @@ namespace GameOfLife
                   var nextCellState = FindNextStateOfCell(currentCellState, numberOfLiveNeighbours);
                   nextGenerationOfCells[row, column] = new Cell {CellState = nextCellState};
               }
-          }    
+          }  
+          
           CellGrid.Cells = nextGenerationOfCells;
       }
 

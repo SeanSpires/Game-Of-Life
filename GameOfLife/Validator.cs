@@ -30,7 +30,7 @@ namespace GameOfLife
             {
                 return false;
             }
-
+            
             return height >= 0 && height < gridHeight && width >= 0 && width < gridWidth;
         }
     }

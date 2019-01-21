@@ -7,12 +7,14 @@ namespace GameOfLife
         private static void Main(string[] args)
         {
             var mainMenu = new MainMenu();
-            mainMenu.Run();
+            var gridDimensions = mainMenu.GetUserInput();
+            var gridHeight = gridDimensions[0];
+            var gridWidth = gridDimensions[1];
             
-            var initializationMenu = new InitializationMenu(mainMenu.GridHeight, mainMenu.GridWidth);
-            initializationMenu.Run();
+            var worldSetupMenu = new WorldSetupMenu(gridHeight, gridWidth);
+            var initialCells = worldSetupMenu.GetUserInput();
             
-            var gameOfLife = new GameOfLife(mainMenu.GridHeight, mainMenu.GridWidth, initializationMenu.Cells);
+            var gameOfLife = new GameOfLife(gridHeight, gridWidth, initialCells);
             gameOfLife.Start();
         }
     }

@@ -25,13 +25,11 @@ namespace GameOfLife
         public void DisplayInitializationMenu()
         {
             Console.WriteLine("All cells are initially dead, enter in coordinates to" +
-                              " swap the state of a cell: <height,width>");
-            Console.WriteLine("When you're ready type \"start\" to begin game of life");
+                              " swap the state of a cell: <height,width> or type \"start\" to begin game of life");
         }
 
         public void DisplayUserInputErrorMessage()
         {           
-            Console.Clear();
             Console.WriteLine("Your input was incorrect, please enter a valid input");
         }
 

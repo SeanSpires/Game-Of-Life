@@ -12,8 +12,6 @@
         <e p="GameOfLife.csproj" t="IncludeRecursive" />
         <e p="Grid.cs" t="Include" />
         <e p="IGrid.cs" t="Include" />
-        <e p="IMenu.cs" t="Include" />
-        <e p="InitializationMenu.cs" t="Include" />
         <e p="IRenderer.cs" t="Include" />
         <e p="MainMenu.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
@@ -28,6 +26,7 @@
         <e p="State.cs" t="Include" />
         <e p="Validator.cs" t="Include" />
         <e p="World.cs" t="Include" />
+        <e p="WorldSetupMenu.cs" t="Include" />
       </e>
       <e p="GameOfLife.sln" t="IncludeFlat" />
       <e p="GameOfLifeTests" t="IncludeRecursive">
