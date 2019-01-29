@@ -16,8 +16,7 @@ namespace GameOfLife
         public void Start()
         {
             var renderer = new Renderer(new Writer());
-            const int milliseconds = 500;
-            
+            const int milliseconds = 500;       
             do
             {
                 var cells = World.CellGrid.Cells;

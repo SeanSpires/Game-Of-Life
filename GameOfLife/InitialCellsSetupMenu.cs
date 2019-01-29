@@ -42,11 +42,17 @@ namespace GameOfLife
                 }
                 else
                 {
-                    DisplayErrorScreen(cells);
+                    RenderCells(cells);
+                    DisplayErrorScreen();
                 }
             }
 
             return cells;
+        }
+
+        private void RenderCells(Cell[,] cells)
+        {
+            _renderer.RenderCellsInGrid(cells);
         }
 
         private bool IsCoordinateValid(int height, int width, string userInput)
@@ -55,9 +61,8 @@ namespace GameOfLife
             return validator.IsUserInputValid(userInput,height, width);
         }
 
-        private void DisplayErrorScreen(Cell[,] cells)
+        private void DisplayErrorScreen()
         {          
-            _renderer.RenderCellsInGrid(cells);
             _renderer.DisplayUserInputErrorMessage();
         }
 
