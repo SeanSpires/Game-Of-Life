@@ -10,7 +10,7 @@ namespace GameOfLifeTests
     public class WorldShould
     {
         [Fact]
-        public void KillUnderpopulatedCellsPerTick()
+        public void KillUnderpopulatedCells()
         {
             var world = new World {CellGrid = new MockGrid(3, 3, "Grid With Underpopulated Cells")};
 

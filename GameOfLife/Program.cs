@@ -11,11 +11,12 @@ namespace GameOfLife
             var gridHeight = gridDimensions[0];
             var gridWidth = gridDimensions[1];
             
-            var worldSetupMenu = new WorldSetupMenu(gridHeight, gridWidth);
-            var initialCells = worldSetupMenu.GetUserInput();
+            var initialCellsSetupMenu = new InitialCellsSetupMenu(gridHeight, gridWidth);
+            var initialCells = initialCellsSetupMenu.GetUserInput();
             
             var gameOfLife = new GameOfLife(gridHeight, gridWidth, initialCells);
             gameOfLife.Start();
         }
+        
     }
 }

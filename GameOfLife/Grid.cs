@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 
@@ -26,25 +27,24 @@ namespace GameOfLife
         private List<Cell> FindNeighbouringCells(int row, int column)
         {
             var neighbouringCells = new List<Cell>();  
-            var neighboursRowPositions = GetCellNeighbourPosition(row);
-            var neighboursColPositions = GetCellNeighbourPosition(column);
+            var neighboursRowPositions = GetNeighbourPositions(row);
+            var neighboursColPositions = GetNeighbourPositions(column);
             
             foreach (var neighboursRow in neighboursRowPositions)
             {
                 foreach (var neighboursCol in neighboursColPositions)
                 {
-                    if (row + neighboursRow == row && column + neighboursCol == column)
+                    if (row + neighboursRow != row || column + neighboursCol != column)
                     {
-                        continue;
+                        neighbouringCells.Add(Cells[row + neighboursRow, column + neighboursCol]);
                     }
-
-                    neighbouringCells.Add(Cells[row + neighboursRow, column + neighboursCol]);
                 }
             }
+
             return neighbouringCells;
         }
 
-        private IEnumerable<int> GetCellNeighbourPosition(int coordinate)
+        private IEnumerable<int> GetNeighbourPositions(int coordinate)
         {
             if (coordinate == 0)
             {

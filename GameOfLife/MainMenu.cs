@@ -5,16 +5,24 @@ namespace GameOfLife
 {
     public class MainMenu
     {
+
+        private readonly Renderer _renderer;
+
+        public MainMenu()
+        {
+            var writer = new Writer();
+            _renderer = new Renderer(writer);
+        }
+        
+
         private void Display()
         {
-            var renderer = new Renderer();
-            renderer.DisplayMainMenu();
+            _renderer.DisplayMainMenu();
         }
 
         private void DisplayUserInputErrorMessage()
         {
-            var renderer = new Renderer();
-            renderer.DisplayUserInputErrorMessage();
+            _renderer.DisplayUserInputErrorMessage();
         }
 
         public int[] GetUserInput()

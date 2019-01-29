@@ -15,7 +15,7 @@ namespace GameOfLife
 
         public void Start()
         {
-            var renderer = new Renderer();
+            var renderer = new Renderer(new Writer());
             const int milliseconds = 500;
             
             do

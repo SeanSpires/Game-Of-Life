@@ -2,7 +2,7 @@ using System;
 
 namespace GameOfLife
 {
-    public class WorldSetupMenu 
+    public class InitialCellsSetupMenu 
     {
         private const string KeyWordToStartGameOfLife = "start";
 
@@ -10,10 +10,13 @@ namespace GameOfLife
 
         private readonly int _gridWidth;
 
-        public WorldSetupMenu(int gridHeight, int gridWidth)
+        private readonly Renderer _renderer;
+
+        public InitialCellsSetupMenu(int gridHeight, int gridWidth)
         {
             _gridHeight = gridHeight;
             _gridWidth = gridWidth;
+            _renderer = new Renderer(new Writer());
         }
 
         public Cell[,] GetUserInput()
@@ -54,14 +57,12 @@ namespace GameOfLife
 
         private void DisplayErrorScreen(Cell[,] cells)
         {          
-            var renderer = new Renderer();
-            renderer.RenderCellsInGrid(cells);
-            renderer.DisplayUserInputErrorMessage();
+            _renderer.RenderCellsInGrid(cells);
+            _renderer.DisplayUserInputErrorMessage();
         }
 
         private Cell[,] UpdateCell(Cell[,] cells, string userInput)
         {
-            var renderer = new Renderer();
             var coordinates = userInput.Split(",");
             var x = int.Parse(coordinates[0]);
             var y = int.Parse(coordinates[1]);
@@ -69,14 +70,13 @@ namespace GameOfLife
             
             cellAtCoordinate.SwapCellState();
             cells[x, y] = cellAtCoordinate;
-            renderer.RenderCellsInGrid(cells);
+            _renderer.RenderCellsInGrid(cells);
             return cells;
         }
 
         private void DisplayInitializationMenu()
         {
-            var renderer = new Renderer();
-            renderer.DisplayInitializationMenu();
+            _renderer.DisplayInitializationMenu();
         }
         
         private Cell[,] InitializeCells(int gridHeight, int gridWidth)
