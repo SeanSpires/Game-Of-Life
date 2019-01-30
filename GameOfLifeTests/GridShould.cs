@@ -1,5 +1,4 @@
 using GameOfLife;
-using GameOfLifeTests.MockClasses;
 using Xunit;
 
 namespace GameOfLifeTests

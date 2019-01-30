@@ -1,5 +1,3 @@
-using System;
-
 namespace GameOfLife
 {
     public class Renderer
@@ -16,9 +14,7 @@ namespace GameOfLife
             for (var row = 0; row < cells.GetLength(0); row++)
             {
                 for (var col = 0; col < cells.GetLength(1); col++)
-                {
                     _writer.Write(cells[row, col].CellState == State.Dead ? "- " : "+ ");
-                }
                 DisplayNewLine();
             }
         }
@@ -26,7 +22,7 @@ namespace GameOfLife
         public void DisplayMainMenu()
         {
             _writer.WriteLine("Welcome to Conway's Game Of Life\n" +
-                             "What dimensions would you like the world to have? <height,width>");
+                              "What dimensions would you like the world to have? <height,width>");
         }
 
         public void DisplayInitializationMenu()
@@ -36,7 +32,7 @@ namespace GameOfLife
         }
 
         public void DisplayUserInputErrorMessage()
-        {           
+        {
             _writer.WriteLine("Your input was incorrect, please enter a valid input");
         }
 

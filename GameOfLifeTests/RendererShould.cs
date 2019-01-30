@@ -1,37 +1,16 @@
 using System;
 using System.IO;
 using GameOfLife;
-using GameOfLifeTests.MockClasses;
-using Newtonsoft.Json;
 using Xunit;
 
 namespace GameOfLifeTests
 {
     public class RendererShould
     {
-
         public RendererShould()
         {
             var standardOut = new StreamWriter(Console.OpenStandardOutput()) {AutoFlush = true};
             Console.SetOut(standardOut);
-        }
-
-        [Fact]
-        public void DisplayMainMenu()
-        {
-            using (var stringWriter = new StringWriter())
-            {
-                Console.SetOut(stringWriter);
-
-
-                var renderer = new Renderer(new Writer());
-                renderer.DisplayMainMenu();
-
-                var expectedOutput = $"Welcome to Conway's Game Of Life{Environment.NewLine}" +
-                                     $"What dimensions would you like the world to have? <height,width>{Environment.NewLine}";
-
-                Assert.Equal(expectedOutput, stringWriter.ToString());
-            }
         }
 
         [Fact]
@@ -54,7 +33,7 @@ namespace GameOfLifeTests
         }
 
         [Fact]
-        public void DisplayUserInputErrorMessage()
+        public void DisplayMainMenu()
         {
             using (var stringWriter = new StringWriter())
             {
@@ -62,9 +41,10 @@ namespace GameOfLifeTests
 
 
                 var renderer = new Renderer(new Writer());
-                renderer.DisplayUserInputErrorMessage();
+                renderer.DisplayMainMenu();
 
-                var expectedOutput = $"Your input was incorrect, please enter a valid input{Environment.NewLine}";
+                var expectedOutput = $"Welcome to Conway's Game Of Life{Environment.NewLine}" +
+                                     $"What dimensions would you like the world to have? <height,width>{Environment.NewLine}";
 
                 Assert.Equal(expectedOutput, stringWriter.ToString());
             }
@@ -87,6 +67,21 @@ namespace GameOfLifeTests
             }
         }
 
+        [Fact]
+        public void DisplayUserInputErrorMessage()
+        {
+            using (var stringWriter = new StringWriter())
+            {
+                Console.SetOut(stringWriter);
 
+
+                var renderer = new Renderer(new Writer());
+                renderer.DisplayUserInputErrorMessage();
+
+                var expectedOutput = $"Your input was incorrect, please enter a valid input{Environment.NewLine}";
+
+                Assert.Equal(expectedOutput, stringWriter.ToString());
+            }
+        }
     }
 }

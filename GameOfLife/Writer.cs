@@ -14,6 +14,4 @@ namespace GameOfLife
             Console.WriteLine(input);
         }
     }
-
-  
 }

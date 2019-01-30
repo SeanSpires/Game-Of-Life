@@ -1,22 +1,21 @@
-using System;
 using System.Threading;
 
 namespace GameOfLife
 {
     public class GameOfLife
     {
-        private World World { get; }
         public GameOfLife(int gridHeight, int gridWidth, Cell[,] cells)
         {
             World = new World();
-            World.CreateGrid(gridHeight, gridWidth);
-            World.Grid.Cells = cells;
+            World.CreateGrid(gridHeight, gridWidth, cells);
         }
+
+        private World World { get; }
 
         public void Start()
         {
             var renderer = new Renderer(new Writer());
-            const int milliseconds = 500;       
+            const int milliseconds = 500;
             do
             {
                 var cells = World.Grid.Cells;
@@ -25,7 +24,6 @@ namespace GameOfLife
                 World.Tick();
                 renderer.RenderCellsInGrid(cells);
             } while (true);
-            
         }
     }
 }

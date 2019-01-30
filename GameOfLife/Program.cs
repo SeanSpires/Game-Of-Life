@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace GameOfLife
+﻿namespace GameOfLife
 {
-    class Program
+    internal class Program
     {
         private static void Main(string[] args)
         {
@@ -10,13 +8,12 @@ namespace GameOfLife
             var gridDimensions = mainMenu.GetUserInput();
             var gridHeight = gridDimensions[0];
             var gridWidth = gridDimensions[1];
-            
+
             var initialCellsSetupMenu = new InitialCellsSetupMenu(gridHeight, gridWidth);
             var initialCells = initialCellsSetupMenu.GetUserInput();
-            
+
             var gameOfLife = new GameOfLife(gridHeight, gridWidth, initialCells);
             gameOfLife.Start();
         }
-        
     }
 }
