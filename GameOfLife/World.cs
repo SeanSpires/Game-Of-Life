@@ -4,31 +4,34 @@ using System.Linq;
 namespace GameOfLife
 {
     public class World
-    { 
-      public IGrid CellGrid { get; set; }
+    {
+        
+      int d; //elapsed time in days
+        
+      public IGrid Grid { get; set; }
 
       public void Tick()
       {
-          var nextGenerationOfCells = CellGrid.Cells.Clone() as Cell[,];
+          var nextGenerationOfCells = Grid.Cells.Clone() as Cell[,];
 
-          for (var row = 0; row < CellGrid.GridHeight; row++)
+          for (var row = 0; row < Grid.GridHeight; row++)
           {
-              for (var column = 0; column < CellGrid.GridWidth; column++)
+              for (var column = 0; column < Grid.GridWidth; column++)
               {
-                  var neighbouringCells = CellGrid.GetNeighbouringCells(row, column);
+                  var neighbouringCells = Grid.GetNeighbouringCells(row, column);
                   var numberOfLiveNeighbours = CountNumberOfLiveNeighbours(neighbouringCells);
-                  var currentCellState = CellGrid.Cells[row, column].CellState;
+                  var currentCellState = Grid.Cells[row, column].CellState;
                   var nextCellState = FindNextStateOfCell(currentCellState, numberOfLiveNeighbours);
                   nextGenerationOfCells[row, column] = new Cell {CellState = nextCellState};
               }
           }  
           
-          CellGrid.Cells = nextGenerationOfCells;
+          Grid.Cells = nextGenerationOfCells;
       }
 
       public void CreateGrid(int gridHeight, int gridWidth)
       {
-          CellGrid = new Grid(gridHeight, gridWidth);
+          Grid = new Grid(gridHeight, gridWidth);
       }
 
       private int CountNumberOfLiveNeighbours(IEnumerable<Cell> neighbouringCells)

@@ -34,10 +34,8 @@ namespace GameOfLife
             {
                 foreach (var neighboursCol in neighboursColPositions)
                 {
-                    if (row + neighboursRow != row || column + neighboursCol != column)
-                    {
-                        neighbouringCells.Add(Cells[row + neighboursRow, column + neighboursCol]);
-                    }
+                    if (row + neighboursRow == row && column + neighboursCol == column) continue;
+                    neighbouringCells.Add(Cells[row + neighboursRow, column + neighboursCol]);
                 }
             }
 

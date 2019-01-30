@@ -10,7 +10,7 @@ namespace GameOfLife
         {
             World = new World();
             World.CreateGrid(gridHeight, gridWidth);
-            World.CellGrid.Cells = cells;
+            World.Grid.Cells = cells;
         }
 
         public void Start()
@@ -19,7 +19,7 @@ namespace GameOfLife
             const int milliseconds = 500;       
             do
             {
-                var cells = World.CellGrid.Cells;
+                var cells = World.Grid.Cells;
                 renderer.DisplayNewLine();
                 Thread.Sleep(milliseconds);
                 World.Tick();

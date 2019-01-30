@@ -12,10 +12,10 @@ namespace GameOfLifeTests
         [Fact]
         public void KillUnderpopulatedCells()
         {
-            var world = new World {CellGrid = new MockGrid(3, 3, "Grid With Underpopulated Cells")};
+            var world = new World {Grid = new MockGrid(3, 3, "Grid With Underpopulated Cells")};
 
             world.Tick();
-            var grid = world.CellGrid;
+            var grid = world.Grid;
             var actualCellsInGrid = grid.Cells;
             
             var deadCell = new Cell {CellState = State.Dead};
@@ -33,10 +33,10 @@ namespace GameOfLifeTests
         [Fact]
         public void KillOvercrowdedCells()
         {
-            var world = new World {CellGrid = new MockGrid(3, 3, "Grid With All Cells Live")};
+            var world = new World {Grid = new MockGrid(3, 3, "Grid With All Cells Live")};
             
             world.Tick();
-            var grid = world.CellGrid;
+            var grid = world.Grid;
             var actualCellsInGrid = grid.Cells;
             
             var deadCell = new Cell {CellState = State.Dead};
@@ -54,11 +54,11 @@ namespace GameOfLifeTests
         [Fact]
         public void NotKillLiveCellsWithTwoOrThreeLiveNeighbours()
         {
-            var world = new World {CellGrid = new MockGrid(3, 3, "Grid With Live Cells Which " +
+            var world = new World {Grid = new MockGrid(3, 3, "Grid With Live Cells Which " +
                                                                  "Have Two And Three live Neighbours")};
             
             world.Tick();
-            var grid = world.CellGrid;
+            var grid = world.Grid;
             var actualCellsInGrid = grid.Cells;
 
             var liveCell = new Cell {CellState = State.Live};
@@ -76,10 +76,10 @@ namespace GameOfLifeTests
         [Fact]
         public void ReviveDeadCellsWithThreeLiveNeighbours()
         {
-            var world = new World {CellGrid = new MockGrid(3 ,3, "Grid With Dead Cells " +
+            var world = new World {Grid = new MockGrid(3 ,3, "Grid With Dead Cells " +
                                                                  "To Be Revived")};
             world.Tick();
-            var grid = world.CellGrid;
+            var grid = world.Grid;
             var actualCellsInGrid = grid.Cells;
 
             var liveCell = new Cell {CellState =  State.Live};
